@@ -9,6 +9,16 @@ Distributed, scalable database. To be implemented.
 
 ## Usage
 ```rust
+extern crate hyperdb;
+
+use std::path::PathBuf;
+
+let location = PathBuf::from("./my.db");
+let db = hyperdb::HyperDb::new(location);
+
+db.put("/hello", b"world").unwrap();
+let nodes = db.get("/hello").unwrap();
+println!("/hello --> {}", nodes[0].value);
 ```
 
 ## Installation
